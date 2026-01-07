@@ -4,7 +4,11 @@
 export const basicRules = [
   {
     title: "麻雀の基本形",
-    content: "「3枚1組が4組」＋「同じ牌2枚が1組（1アタマ）」＝「4メンツ ＋ 1アタマ」が基本です。\nただし、例外として「国士無双」と「七対子」はこの形に当てはまりません。"
+    content: "「3枚1組が4組」＋「同じ牌2枚が1組（1アタマ）」＝「4メンツ ＋ 1アタマ」が基本です。\nただし、例外として「国士無双」と「七対子（チートイツ）」はこの形に当てはまりません。"
+  },
+  {
+    title: "メンツ（面子）の種類",
+    content: "メンツには「順子（シュンツ）：数字の連続」「刻子（コーツ）：同じ牌3枚」「槓子（カンツ）：カンで作った同じ牌4枚」の3種類があります。"
   },
   {
     title: "対局の流れ（1局の進み方）",
@@ -17,8 +21,32 @@ export const basicRules = [
     ].join("\n")
   },
   {
-    title: "メンツ（面子）の種類",
-    content: "メンツには「順子（シュンツ）：数字の連続」「刻子（コーツ）：同じ牌3枚」「槓子（カンツ）：カンで作った同じ牌4枚」の3種類があります。"
+    title: "鳴きとは",
+    content: [
+      "鳴きとは、他人が捨てた牌を使って、自分のメンツを完成させることをいいます。",
+      "【鳴きの種類】",
+      "・ポン：同じ牌を2枚持っているとき、他人の捨て牌を使って3枚集めることです。誰からでも鳴くことができます。",
+      "・チー：階段状の数字（例：2･3）を持っているとき、つながる牌（1か4）をもらって3枚のセットを作ることです。自分の左側の人からしか鳴けません。",
+      "・カン：同じ牌を4枚揃えて1つのセットを作ることです。自分で4枚揃える場合と、他人の捨て牌を使う場合があります。",
+      "カンをするとドラが1枚増えます。また、カンをすることで嶺上牌（リンシャンハイ）や嶺上開花（リンシャンカイホウ）という役ができる場合があります。",
+      "【鳴きのメリットと注意点】",
+      "・メリット：自分で牌を引くのを待たずに済むため、早くアガリに近づけます。",
+      "・注意点：できる役が限られたり、点数が低くなることがあります。",
+    ].join("\n")
+  },
+  {
+    title: "自風（じかぜ）と読み方",
+    content: [
+      "自風とは、その局において自分が担当する方角（東・南・西・北）のことです。麻雀ではこれらを「トン・ナン・シャー・ペー」と呼びます。",
+      "【読み方と配置】",
+      "・東（トン）：親の人の風。",
+      "・南（ナン）：親の右隣の人の風。",
+      "・西（シャー）：親の正面の人の風。",
+      "・北（ペー）：親の左隣の人の風。",
+      "【自風のルール】",
+      "・親が「東」となり、そこから反時計回りに割り振られます。親が交代すると、全員の自風も一つずつずれていきます。",
+      "・自分の自風と同じ牌を3枚集めると「役（自風牌）」になり、アガリに近づけます。",
+    ].join("\n")
   },
   {
     title: "用語集",
@@ -39,7 +67,7 @@ export const basicRules = [
   }
 ];
 
-// 役のデータ（まずは名前、読み、説明だけ）
+// 役のデータ
 export const yakuData = [
 　{
     category: "1翻役",
@@ -103,7 +131,7 @@ export const yakuData = [
     kana: "リンシャンカイホー",
     description: "槓（カン）をした際に、補充として引いた嶺上牌でアガると成立する役です。",
     naki: true,
-    tiles: []
+    tiles: ["p_ji_bk_1.gif", "p_ms2_1.gif", "p_ms2_1.gif", "p_ji_bk_1.gif", "p_ms3_1.gif", "p_ms3_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ps7_1.gif", "p_ss2_1.gif", "p_ss3_1.gif", "p_ss4_1.gif", "p_ji_e_1.gif", "p_ji_e_1.gif", "p_ms3_1.gif"]
   },
   {
     category: "1翻役",
@@ -150,7 +178,7 @@ export const yakuData = [
     name: "三暗刻",
     kana: "サンアンコー",
     description: "ポンをせずに、自分で引き当てた「刻子（同じ牌3枚）」を3つ作る役です。",
-    naki: true,
+    naki: false,
     tiles: ["p_ms3_1.gif", "p_ms3_1.gif", "p_ms3_1.gif", "p_ps7_1.gif", "p_ps7_1.gif", "p_ps7_1.gif", "p_ji_h_1.gif", "p_ji_h_1.gif", "p_ji_h_1.gif", "p_ss2_1.gif", "p_ss3_1.gif", "p_ss4_1.gif", "p_ms9_1.gif", "p_ms9_1.gif"]
   },
   {
@@ -207,7 +235,7 @@ export const yakuData = [
     kana: "サンカンツ",
     description: "1人で「カン」を3回行うと成立する、非常に珍しい役です。",
     naki: true,
-    tiles: []
+    tiles: ["p_ji_bk_1.gif", "p_ms2_1.gif", "p_ms2_1.gif", "p_ji_bk_1.gif", "p_ji_bk_1.gif", "p_ps5_1.gif", "p_ps5_1.gif", "p_ji_bk_1.gif", "p_ji_bk_1.gif", "p_ss8_1.gif", "p_ss8_1.gif", "p_ji_bk_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ms5_1.gif", "p_ji_c_1.gif", "p_ji_c_1.gif"]
   },
   {
     category: "2翻役",
@@ -308,7 +336,7 @@ export const yakuData = [
   {
     category: "役満",
     name: "九蓮宝燈",
-    kana: "チュウレンポートウ",
+    kana: "チュウレンポウトウ",
     description: "1種類の数牌で「111 2345678 999」＋「好きな数字をあと1枚」という形に、同じ種類の牌をどれか1枚加えた形でアガる、究極の役満の一つです。",
     naki: false,
     tiles: ["p_ms1_1.gif", "p_ms1_1.gif", "p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ms5_1.gif", "p_ms5_1.gif", "p_ms6_1.gif", "p_ms7_1.gif", "p_ms8_1.gif", "p_ms9_1.gif", "p_ms9_1.gif", "p_ms9_1.gif"]
@@ -319,7 +347,11 @@ export const yakuData = [
     kana: "スーカンツ",
     description: "1人で4回「カン」を行うことで成立する、最も出現率が低いと言われる奇跡的な役満です。",
     naki: true,
-    tiles: []
+    tiles: ["p_ji_bk_1.gif", "p_ms1_1.gif", "p_ms1_1.gif", "p_ji_bk_1.gif", 
+      "p_ps9_1.gif", "p_ps9_1.gif", "p_ps9_1.gif", "p_ps9_1.gif",
+      "p_ss5_1.gif", "p_ss5_1.gif", "p_ss5_1.gif", "p_ss5_1.gif",
+      "p_ji_no_1.gif", "p_ji_no_1.gif", "p_ji_no_1.gif", "p_ji_no_1.gif",
+      "p_ji_c_1.gif", "p_ji_c_1.gif"]
   },
   {
     category: "役満",
@@ -340,6 +372,7 @@ export const yakuData = [
   // ここに他の役をどんどん追加してください
 ];
 
+// クイズ用データ
 export const quizData = [
   {
     question: "この牌姿の役は何？",
@@ -350,7 +383,7 @@ export const quizData = [
   },
   {
     question: "すべて自分で引いた場合のこの役は？",
-    tiles: ["p_ms2_1.gif", "p_ms2_1.gif", "p_ms2_1.gif", "p_ps5_1.gif", "p_ps5_1.gif", "p_ps5_1.gif", "p_ji_no_1.gif", "p_ji_no_1.gif", "p_ji_no_1.gif", "p_ji_h_1.gif", "p_ji_h_1.gif", "p_ji_h_1.gif", "p_ji_c_1.gif", "p_ji_c_1.gif"],
+    tiles: ["p_ms2_1.gif", "p_ms2_1.gif", "p_ms2_1.gif", "p_ps5_1.gif", "p_ps5_1.gif", "p_ps5_1.gif", "p_ss4_1.gif", "p_ss4_1.gif", "p_ss4_1.gif", "p_ji_h_1.gif", "p_ji_h_1.gif", "p_ji_h_1.gif", "p_ji_c_1.gif", "p_ji_c_1.gif"],
     options: ["四暗刻（スーアンコー）", "対々和（トイトイホー）", "三暗刻（サンアンコー）", "大三元（ダイサンゲン）"],
     answer: "四暗刻（スーアンコー）",
     hint: "同じ牌3枚のセット（暗刻）が4つある役満です。"
@@ -371,7 +404,7 @@ export const quizData = [
   },
   {
     question: "萬子・筒子・索子で同じ数字を作ったこの役は？",
-    tiles: ["p_ms2_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ps2_1.gif", "p_ps3_1.gif", "p_ps4_1.gif", "p_ss2_1.gif", "p_ss3_1.gif", "p_ss4_1.gif", "p_ji_e_1.gif", "p_ji_e_1.gif", "p_ji_e_1.gif", "p_ms7_1.gif", "p_ms7_1.gif"],
+    tiles: ["p_ms2_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ps2_1.gif", "p_ps3_1.gif", "p_ps4_1.gif", "p_ss2_1.gif", "p_ss3_1.gif", "p_ss4_1.gif", "p_ms7_1.gif", "p_ms7_1.gif", "p_ms7_1.gif", "p_ji_e_1.gif", "p_ji_e_1.gif"],
     options: ["三色同順（サンショクドウジュン）", "三色同刻（サンショクドウコ）", "一盃口（イーペイコー）", "平和（ピンフ）"],
     answer: "三色同順（サンショクドウジュン）",
     hint: "3つの色すべてで「234」の順子ができています。"
@@ -399,7 +432,7 @@ export const quizData = [
   },
   {
     question: "同じ種類の順子が2組あるこの役は？",
-    tiles: ["p_ss2_1.gif", "p_ss3_1.gif", "p_ss4_1.gif", "p_ss2_1.gif", "p_ss3_1.gif", "p_ss4_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ps7_1.gif", "p_ms8_1.gif", "p_ms9_1.gif", "p_ms7_1.gif", "p_ji_c_1.gif", "p_ji_c_1.gif"],
+    tiles: ["p_ss2_1.gif", "p_ss3_1.gif", "p_ss4_1.gif", "p_ss2_1.gif", "p_ss3_1.gif", "p_ss4_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ps7_1.gif", "p_ms7_1.gif", "p_ms8_1.gif", "p_ms9_1.gif", "p_ji_c_1.gif", "p_ji_c_1.gif"],
     options: ["一盃口（イーペイコー）", "二盃口（リャンペイコー）", "三色同順（サンショクドウジュン）", "平和（ピンフ）"],
     answer: "一盃口（イーペイコー）",
     hint: "索子の234が2セットあります。門前（鳴いていない）限定の役です。"
@@ -419,7 +452,7 @@ export const quizData = [
     hint: "見た目がすべて緑色の牌だけで構成される美しい役満です。"
   },
   {
-    question: "すべて「同じ牌3枚」で揃えたこの役は？",
+    question: "ポンをしても成立するする、すべて「同じ牌3枚」で揃えたこの役は？",
     tiles: ["p_ms1_1.gif", "p_ms1_1.gif", "p_ms1_1.gif", "p_ps5_1.gif", "p_ps5_1.gif", "p_ps5_1.gif", "p_ss9_1.gif", "p_ss9_1.gif", "p_ss9_1.gif", "p_ji_no_1.gif", "p_ji_no_1.gif", "p_ji_no_1.gif", "p_ms3_1.gif", "p_ms3_1.gif"],
     options: ["対々和（トイトイホー）", "四暗刻（スーアンコー）", "三暗刻（サンアンコー）", "平和（ピンフ）"],
     answer: "対々和（トイトイホー）",
@@ -440,7 +473,7 @@ export const quizData = [
     hint: "門前かつ、同じ種類の数牌だけで特定の形を作る非常に珍しい役満です。"
   },
   {
-    question: "すべてのメンツに1・9・字牌を入れた順子役は？",
+    question: "すべてのメンツに1・9・字牌を入れた役は？",
     tiles: ["p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ps7_1.gif", "p_ps8_1.gif", "p_ps9_1.gif", "p_ss1_1.gif", "p_ss2_1.gif", "p_ss3_1.gif", "p_ji_c_1.gif", "p_ji_c_1.gif", "p_ji_c_1.gif", "p_ps1_1.gif", "p_ps1_1.gif"],
     options: ["混全帯么九（チャンタ）", "純全帯么九（ジュンチャン）", "清老頭（チンロウトウ）", "混老頭（ホンロウトウ）"],
     answer: "混全帯么九（チャンタ）",
@@ -480,5 +513,134 @@ export const quizData = [
     options: ["小三元（ショウサンゲン）", "大三元（ダイサンゲン）", "三元牌（サンゲンパイ）", "混一色（ホンイーソー）"],
     answer: "小三元（ショウサンゲン）",
     hint: "三元牌のうち2つが3枚、1つが2枚の状態です。"
+  },
+  //追加のクイズ
+  {
+    question: "リーチ後、1周以内にアガるとつくこの役は？",
+    tiles: ["p_ms2_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ps7_1.gif", "p_ss2_1.gif", "p_ss3_1.gif", "p_ss4_1.gif", "p_ji_e_1.gif", "p_ji_e_1.gif", "p_ms8_1.gif", "p_ms8_1.gif", "p_ms8_1.gif"],
+    options: ["一発（イッパツ）", "ダブル立直（ダブルリーチ）", "嶺上開花（リンシャンカイホウ）", "三色同順（サンショク）"],
+    answer: "一発（イッパツ）",
+    hint: "立直直後の1巡以内にアガる幸運の役。途中で鳴きが入ると無効になる。"
+  },
+  {
+    question: "山の最後の牌を自分でツモってアガった時の役は？",
+    tiles: ["p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ps4_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ss7_1.gif", "p_ss8_1.gif", "p_ss9_1.gif", "p_ji_s_1.gif", "p_ji_s_1.gif", "p_ji_s_1.gif", "p_ji_no_1.gif", "p_ji_no_1.gif"],
+    options: ["海底摸月（ハイテイツモ）", "河底撈魚（ホウテイロン）", "天和（テンホー）", "地和（チーホー）"],
+    answer: "海底摸月（ハイテイツモ）",
+    hint: "その局の最後、1枚しかない海底牌でツモアガる。通称「ハイテイ」。"
+  },
+  {
+    question: "鳴かずに同じ牌3枚（暗刻）を3セット作った時につく役は？",
+    tiles: ["p_ms2_1.gif", "p_ms2_1.gif", "p_ms2_1.gif", "p_ps5_1.gif", "p_ps5_1.gif", "p_ps5_1.gif", "p_ss8_1.gif", "p_ss8_1.gif", "p_ss8_1.gif", "p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ji_c_1.gif", "p_ji_c_1.gif"],
+    options: ["三暗刻（サンアンコー）", "三色同刻（サンショクドウコ）", "四暗刻（スーアンコー）", "一盃口（イーペイコー）"],
+    answer: "三暗刻（サンアンコー）",
+    hint: "鳴かずに自力で揃えた刻子を3つ作る役。4つ揃えば役満の四暗刻になる。"
+  },
+  {
+    question: "東・南・西・北をすべて3枚（刻子）で揃えた役満は？",
+    tiles: ["p_ji_e_1.gif", "p_ji_e_1.gif", "p_ji_e_1.gif", "p_ji_s_1.gif", "p_ji_s_1.gif", "p_ji_s_1.gif", "p_ji_w_1.gif", "p_ji_w_1.gif", "p_ji_w_1.gif", "p_ji_n_1.gif", "p_ji_n_1.gif", "p_ji_n_1.gif", "p_ms1_1.gif", "p_ms1_1.gif"],
+    options: ["大四喜（ダイスーシー）", "小四喜（ショウスーシー）", "大三元（ダイサンゲン）", "清一色（チンイーソー）"],
+    answer: "大四喜（ダイスーシー）",
+    hint: "東・南・西・北の4種すべてを刻子にする、風牌系の最高峰役満。"
+  },
+  {
+    question: "門前で、同じ順子を2組ずつ作ったこの役は？",
+    tiles: ["p_ms2_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ps7_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ps7_1.gif", "p_ss9_1.gif", "p_ss9_1.gif"],
+    options: ["二盃口（リャンペイコー）", "一盃口（イーペイコー）", "対々和（トイトイホー）", "三色同順（サンショク）"],
+    answer: "二盃口（リャンペイコー）",
+    hint: "同じ順子2組を2セット（計4面子）作る。一盃口の強化版で門前限定役。"
+  },
+  {
+    question: "親の最初の配牌で、すでにアガっていたら？",
+    tiles: ["p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ms5_1.gif", "p_ms6_1.gif", "p_ps7_1.gif", "p_ps8_1.gif", "p_ps9_1.gif", "p_ss1_1.gif", "p_ss1_1.gif", "p_ss1_1.gif", "p_ji_h_1.gif", "p_ji_h_1.gif"],
+    options: ["天和（テンホー）", "地和（チーホー）", "人和（レンホー）", "国士無双（コクシムソウ）"],
+    answer: "天和（テンホー）",
+    hint: "親の配牌14枚で既に完成している役。麻雀における究極の運が必要な役満。"
+  },
+  {
+    question: "場風が東、自分の自風も東のとき、東を3枚持つと？",
+    tiles: ["p_ji_e_1.gif", "p_ji_e_1.gif", "p_ji_e_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ps7_1.gif", "p_ss8_1.gif", "p_ss8_1.gif", "p_ss8_1.gif", "p_ji_c_1.gif", "p_ji_c_1.gif"],
+    options: ["ダブ東（ダブトン）", "東（トン）", "三元牌（サンゲンパイ）", "中（チュン）"],
+    answer: "ダブ東（ダブトン）",
+    hint: "場風と自風が重なった東を揃える。1つのセットで2翻分の価値がある強力な役。"
+  },
+  {
+    question: "他人の最後の捨て牌でロンアガリした時の役は？",
+    tiles: ["p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ps4_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ss7_1.gif", "p_ss8_1.gif", "p_ss9_1.gif", "p_ji_w_1.gif", "p_ji_w_1.gif", "p_ji_w_1.gif", "p_ms5_1.gif", "p_ms5_1.gif"],
+    options: ["河底撈魚（ホウテイロン）", "海底摸月（ハイテイツモ）", "一発（イッパツ）", "槍槓（チャンカン）"],
+    answer: "河底撈魚（ホウテイロン）",
+    hint: "局の最後、河に捨てられた「最後の1枚」でロンする。海底摸月のロン版。"
+  },
+  {
+    question: "門前（一度も鳴かずに）で自力でアガり牌を引くと？",
+    tiles: ["p_ms2_1.gif", "p_ms2_1.gif", "p_ms2_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ps7_1.gif", "p_ss1_1.gif", "p_ss2_1.gif", "p_ss3_1.gif", "p_ms8_1.gif", "p_ms9_1.gif", "p_ji_s_1.gif", "p_ji_s_1.gif", "p_ms7_1.gif"],
+    options: ["門前自模（メンゼンツモ）", "平和（ピンフ）", "断么九（タンヤオ）", "一発（イッパツ）"],
+    answer: "門前自模（メンゼンツモ）",
+    hint: "鳴かずにツモアガるだけで成立。基本1翻だが立直や平和ともよく複合する。"
+  },
+  {
+    question: "子の最初のツモ（鳴きなし）で役満が完成していたら？",
+    tiles: ["p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ms5_1.gif", "p_ms6_1.gif", "p_ps7_1.gif", "p_ps8_1.gif", "p_ps9_1.gif", "p_ss1_1.gif", "p_ss2_1.gif", "p_ss3_1.gif", "p_ji_c_1.gif", "p_ji_c_1.gif"],
+    options: ["地和（チーホー）", "天和（テンホー）", "人和（レンホー）", "九蓮宝燈（チュウレンポウトウ）"],
+    answer: "地和（チーホー）",
+    hint: "子の第1ツモでアガる役満。自分のツモまでに誰も鳴いていないことが条件。"
+  },
+  {
+    question: "1種類の色（萬子・筒子・索子いずれか）だけで揃えた役は？",
+    tiles: ["p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ms5_1.gif", "p_ms6_1.gif", "p_ms7_1.gif", "p_ms8_1.gif", "p_ms9_1.gif", "p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ms5_1.gif", "p_ms5_1.gif"],
+    options: ["清一色（チンイーソー）", "混一色（ホンイーソー）", "国士無双（コクシムソウ）", "三色同順（サンショクドウジュン）"],
+    answer: "清一色（チンイーソー）",
+    hint: "1種類の数牌だけで構成する高得点役。通称「チンイツ」。鳴いても5翻ある。"
+  },
+  {
+    question: "白・發・中のいずれか1種類を3枚揃えるとつく役は？",
+    tiles: ["p_ji_no_1.gif", "p_ji_no_1.gif", "p_ji_no_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ps7_1.gif", "p_ss8_1.gif", "p_ss9_1.gif", "p_ss7_1.gif", "p_ms1_1.gif", "p_ms1_1.gif"],
+    options: ["役牌（ヤクハイ）", "平和（ピンフ）", "断么九（タンヤオ）", "一発（イッパツ）"],
+    answer: "役牌（ヤクハイ）",
+    hint: "三元牌のいずれかを刻子にするだけで成立。アガリやすさを重視する際の基本。"
+  },
+  {
+    question: "「123・123」を2セット、計4つの順子を門前で作ったこの役は？",
+    tiles: ["p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ps4_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ps4_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ss8_1.gif", "p_ss8_1.gif"],
+    options: ["二盃口（リャンペイコー）", "一盃口（イーペイコー）", "七対子（チートイツ）", "三色同順（サンショク）"],
+    answer: "二盃口（リャンペイコー）",
+    hint: "一盃口が2つ完成した形。門前限定の3翻役で、見た目は七対子に似ているが別物。"
+  },
+  {
+    question: "1・9・字牌の刻子だけで構成され、字牌が含まれない役満は？",
+    tiles: ["p_ms1_1.gif", "p_ms1_1.gif", "p_ms1_1.gif", "p_ps1_1.gif", "p_ps1_1.gif", "p_ps1_1.gif", "p_ss9_1.gif", "p_ss9_1.gif", "p_ss9_1.gif", "p_ms9_1.gif", "p_ms9_1.gif", "p_ms9_1.gif", "p_ps9_1.gif", "p_ps9_1.gif"],
+    options: ["清老頭（チンロウトウ）", "混老頭（ホンロウトウ）", "国士無双（コクシムソウ）", "字一色（ツーイーソー）"],
+    answer: "清老頭（チンロウトウ）",
+    hint: "1と9の数牌のみで4面子1雀頭を作る。対々和の形になるのが一般的。"
+  },
+  {
+    question: "すべてのメンツとアタマに「1・9」が含まれ、字牌がない役は？",
+    tiles: ["p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ps7_1.gif", "p_ps8_1.gif", "p_ps9_1.gif", "p_ss1_1.gif", "p_ss2_1.gif", "p_ss3_1.gif", "p_ms9_1.gif", "p_ms9_1.gif", "p_ms9_1.gif", "p_ss7_1.gif", "p_ss7_1.gif"],
+    options: ["純全帯么九（ジュンチャン）", "混全帯么九（チャンタ）", "混一色（ホンイーソー）", "一気通貫（イッキツウカン）"],
+    answer: "純全帯么九（ジュンチャン）",
+    hint: "通称「純チャン」。全てのセットに1か9の数牌を絡める、美しく難易度の高い役。"
+  },
+  {
+    question: "東・南・西・北のうち、3種を刻子、1種を頭にした役満は？",
+    tiles: ["p_ji_e_1.gif", "p_ji_e_1.gif", "p_ji_e_1.gif", "p_ji_s_1.gif", "p_ji_s_1.gif", "p_ji_s_1.gif", "p_ji_w_1.gif", "p_ji_w_1.gif", "p_ji_w_1.gif", "p_ji_n_1.gif", "p_ji_n_1.gif", "p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif"],
+    options: ["小四喜（ショウスーシー）", "大四喜（ダイスーシー）", "字一色（ツーイーソー）", "混一色（ホンイーソー）"],
+    answer: "小四喜（ショウスーシー）",
+    hint: "4つの風牌（東南西北）のうち3種を3枚、1種を2枚にする役満。"
+  },
+  {
+    question: "東場（トンバ）において、自分の風が西の時に「東」を3枚揃えると？",
+    tiles: ["p_ji_e_1.gif", "p_ji_e_1.gif", "p_ji_e_1.gif", "p_ms1_1.gif", "p_ms2_1.gif", "p_ms3_1.gif", "p_ps4_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ss7_1.gif", "p_ss8_1.gif", "p_ss9_1.gif", "p_ms5_1.gif", "p_ms5_1.gif"],
+    options: ["場風 東（バカゼ トン）", "自風 西（ジカゼ シャー）", "ダブ東（ダブトン）", "役牌 白（ハク）"],
+    answer: "場風 東（バカゼ トン）",
+    hint: "その時の「場」と同じ字牌を3枚揃えると1翻つく。東場なら東、南場なら南が対象。"
+  },
+  {
+    question: "誰一人として鳴いていない第1巡目に、立直を宣言すると成立する役は？",
+    tiles: [
+      "p_ms2_1.gif", "p_ms3_1.gif", "p_ms4_1.gif", "p_ps5_1.gif", "p_ps6_1.gif", "p_ps7_1.gif", "p_ss2_1.gif", "p_ss3_1.gif", "p_ss4_1.gif", "p_ms1_1.gif", "p_ms1_1.gif", "p_ms1_1.gif", "p_ji_s_1.gif", "p_ji_s_1.gif"
+    ],
+    options: ["ダブル立直（ダブルリーチ）", "立直（リーチ）", "一発（イッパツ）", "天和（テンホー）"],
+    answer: "ダブル立直（ダブルリーチ）",
+    hint: "親の配牌、または子の第1ツモでテンパイしている時だけ使える、通常の2倍の価値があるリーチです。"
   }
 ];

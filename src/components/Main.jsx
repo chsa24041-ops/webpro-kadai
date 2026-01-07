@@ -162,6 +162,10 @@ export default function Main({ view }) {
 
       <section id="yaku-list">
         <h2 className="section-title">役一覧</h2>
+        <p className="yaku-description">
+        麻雀の役は、成立させるのが難しいものほど「翻数（点数）」が高く設定されています。
+        下にいくほど（最大は役満）難易度は上がりますが、その分高得点を狙うことができます。
+        </p>
         {categories.map((cat) => (
           <div key={cat} style={{ marginBottom: "30px" }}>
             <h3 style={{ color: "#2e7d32", borderBottom: "2px solid #2e7d32", paddingBottom: "5px" }}>{cat}</h3>
